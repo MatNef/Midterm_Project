@@ -1,0 +1,66 @@
+# INFO 1040 Code
+
+##### Page 5
+
+One of the courses I am enrolled in this semester is INFO 1040. For me it is the most challenging class I have.
+This is the first time I have interacted with Python. It's a struggle, but I'm glad to be learning.
+Here is the code from my program I did for the Improved Cylinder Volume Calculation:
+```py
+from math import pi
+
+#Matthew Nefzger's Improve upon Calculate the Volume of a Cylinder Challenge.
+
+def get_radius_from_user():
+    while True:
+        try:
+            radius = float(input("What is the radius? "))
+            if (radius < 0):
+                continue
+            break
+        except ValueError:
+            return radius
+
+def get_height_from_user():
+    while True:
+        try:
+            height = float(input("What is the height? "))
+            if height < 0:
+                continue
+            break
+        except ValueError:
+            return height
+
+def get_positive_value_from_user(prompt):
+    while True:
+        try:
+            value = float(input(prompt))
+            if value < 0:
+                print("The value you have entered is less than 0. Please enter a number that is greater than 0.")
+                continue
+            break
+        except Exception as e:
+            print("Only numerical values are valid. Plus enter a number that is greater than 0.")
+        
+    return value
+
+def calculate_cylinder_volume(radius, height):
+    volume = pi * radius**2 * height
+    return volume
+
+def generate_report(radius, height, volume):
+    print("A cylinder of radius =", radius, "and height =", height, "has a volume of", volume)
+
+def main():
+    radius = get_positive_value_from_user("What is the radius?")
+    height = get_positive_value_from_user("What is the height?")
+    volume = calculate_cylinder_volume(radius, height)
+    generate_report(radius, height, volume)
+
+another_calculation = 'y'
+while another_calculation == "y":
+    # get input from user
+    # perform the calculation
+    # output the result
+    main()
+    another_calculation = input("Do you want to perform another calculation? (y/n): ")
+```
